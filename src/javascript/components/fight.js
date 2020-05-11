@@ -38,7 +38,7 @@ export async function fight(firstFighter, secondFighter) {
                 secondFighter.health -= getDamage(firstFighter)
               }
               showCurrentHealth(secondFighter.health, secondFighterHealth, secondFighterProgress);
-            }, 1000);
+            }, 500);
           }
           break;
         case PlayerTwoAttack:
@@ -50,16 +50,16 @@ export async function fight(firstFighter, secondFighter) {
                 firstFighter.health -= getDamage(secondFighter)
               }
               showCurrentHealth(firstFighter.health, firstFighterHealth, firstFighterProgress);
-            }, 1000);
+            }, 500);
           }
           break;
         case PlayerOneBlock:
           FirstPlayerIsBlocking = true;
-          setTimeout(() => FirstPlayerIsBlocking = false, 1000)
+          setTimeout(() => FirstPlayerIsBlocking = false, 500)
           break;
         case PlayerTwoBlock:
           SecondPlayerIsBlocking = true;
-          setTimeout(() => SecondPlayerIsBlocking = false, 1000)
+          setTimeout(() => SecondPlayerIsBlocking = false, 500)
           break;
         default:
       }
@@ -95,11 +95,11 @@ export function getDamage(attacker, defender) {
 }
 
 export function getHitPower(fighter) {
-  return fighter.attack * (Math.random() * 2)
+  return fighter.attack * (Math.random() + 1)
 }
 
 export function getBlockPower(fighter) {
-  return fighter.defense * (Math.random() * 2)
+  return fighter.defense * (Math.random() + 1)
 }
 
 function showCurrentHealth(current, basic, el) {
